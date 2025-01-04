@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Ensure the RewriteBase is set correctly
+    RewriteBase /
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
