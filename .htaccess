@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Ensure the RewriteBase is set correctly
+    RewriteBase /
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -17,8 +20,9 @@
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteRule ^ public/index.php [L]
 
+    # Security: Deny access to .env file
     <FilesMatch "^\.env">
         Order allow,deny
         Deny from all
