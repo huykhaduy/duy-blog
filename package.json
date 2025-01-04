@@ -3,8 +3,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite",
-        "heroku-postbuild": "cd client && npm install && npm run build"
+        "dev": "vite"
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.15",
